@@ -1,12 +1,15 @@
 <template lang="">
-    <ul>
-        <MovieCards v-for="item in productsList" :key="item.id" :productInfoProp="item"/>
-        
+    <ul v-if="mixingProductsListFunc().length !== 0">
+        <MovieCards v-for="product in mixingProductsListFunc()" :key="product.id" :productInfoProp="product"/>
     </ul>
+    <p v-else>
+        Cerca qualcosa...
+    </p>
 </template>
 
 <script>
 import MovieCards from './MovieCards.vue';
+import { productsList } from '../js/productsList.js';
 export default {
     name: "MoviesCardsContainer",
     components:{
@@ -14,12 +17,14 @@ export default {
     },
     data() {
         return {
-            productsList: [...this.productsListProp[0],...this.productsListProp[1]]
+            productsList,
         }
     },
-    props: [
-        "productsListProp"
-    ],
+    methods: {
+        mixingProductsListFunc(){
+            return [...this.productsList.moviesList, ...this.productsList.tvSeriesList];
+        }
+    }
 }
 </script>
 

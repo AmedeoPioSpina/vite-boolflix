@@ -6,15 +6,16 @@
 
 <script>
 import axios from 'axios';
+import { productsList } from '../js/productsList.js';
 
 export default {
     name: "SearchBar",
     data() {
         return {
+            productsList,
             inputValue: "",
-            urlTMDB: "https://api.themoviedb.org/3/search/movie?api_key=a2cb9b8358fbf60f421cced84a3dd562&language=it-IT&query=",
             moviesList: [],
-            tvList: []
+            tvSeriesList: []
         }
     },
     methods: {
@@ -24,8 +25,9 @@ export default {
                 this.moviesList= resp.data.results
                 axios.get(`https://api.themoviedb.org/3/search/tv?api_key=a2cb9b8358fbf60f421cced84a3dd562&language=it-IT&query=${query}`)
                 .then(resp => {
-                    this.tvList= resp.data.results
-                    this.$emit("productsListEmited", this.moviesList, this.tvList)
+                    this.tvSeriesList= resp.data.results;
+                    productsList.moviesList = this.moviesList;
+                    productsList.tvSeriesList = this.tvSeriesList;
                 })
                 .catch(err => console.warn(err));
             })

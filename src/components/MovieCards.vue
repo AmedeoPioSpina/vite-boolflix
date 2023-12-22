@@ -1,16 +1,20 @@
 <template lang="">
     <li>
         <h2>
-            {{ movieInfo.title }}
+            {{
+                checkKeyfunc("title","name")
+            }}
         </h2>
         <p>
-            {{ movieInfo.original_title }}
+            {{ 
+                checkKeyfunc("original_title","original_name")    
+            }}
         </p>
         <p>
-            {{ movieInfo.original_language }}
+            {{ productInfoProp.original_language }}
         </p>
         <p>
-            {{ movieInfo.vote_average }}
+            {{ productInfoProp.vote_average }}
         </p>
     </li>
 </template>
@@ -18,11 +22,23 @@
 export default {
     name: "MovieCards",
     props: [
-        "movieInfo"
+        "productInfoProp"
     ],
     data() {
         return {
             
+        }
+    },
+    methods: {
+        checkKeyfunc(keyA, keyB){
+            if(this.productInfoProp[`${keyA}`] !== undefined){
+                    console.log(this.productInfoProp[`${keyA}`])
+                    return this.productInfoProp[`${keyA}`]
+                }
+                else{ 
+                    console.log(this.productInfoProp[`${keyB}`])
+                    return this.productInfoProp[`${keyB}`]
+                }
         }
     },
 }

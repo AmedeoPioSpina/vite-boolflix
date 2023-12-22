@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <input type="text" v-model="inputValue"  @keyup.enter="axiosFunc(urlTMDB + inputValue), inputValue=''">
+        <input type="text" v-model="inputValue"  @keyup.enter="axiosFunc(inputValue), inputValue=''">
     </div>
 </template>
 
@@ -13,17 +13,25 @@ export default {
         return {
             inputValue: "",
             urlTMDB: "https://api.themoviedb.org/3/search/movie?api_key=a2cb9b8358fbf60f421cced84a3dd562&language=it-IT&query=",
-            moviesList: []
+            moviesList: [],
+            tvList: []
         }
     },
     methods: {
-        axiosFunc(url) {            
-            return axios.get(url)
+        axiosFunc(query) {            
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=a2cb9b8358fbf60f421cced84a3dd562&language=it-IT&query=${query}`)
             .then(resp => {
                 this.moviesList= resp.data.results
-                return this.$emit("moviesListEmited", this.moviesList)
             })
             .catch(err => console.warn(err));
+
+            axios.get(`https://api.themoviedb.org/3/search/tv?api_key=a2cb9b8358fbf60f421cced84a3dd562&language=it-IT&query=${query}`)
+            .then(resp => {
+                this.tvList= resp.data.results
+            })
+            .catch(err => console.warn(err));
+            this.$emit("productsListEmited", [this.moviesList, this.tvList])
+
         }
     },
 }

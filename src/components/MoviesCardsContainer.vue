@@ -1,6 +1,6 @@
 <template lang="">
     <ul>
-        <MovieCards v-for="item in moviesListProp" :key="item.id" :movieInfo="item"/>
+        <MovieCards v-for="item in productsListProp" :key="item.id" :productInfoProp="item"/>
         
     </ul>
 </template>
@@ -18,7 +18,7 @@ export default {
         }
     },
     props: [
-        "moviesListProp"
+        "productsListProp"
     ],
 }
 </script>

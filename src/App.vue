@@ -1,6 +1,6 @@
 <template>
-  <SearchBar @moviesListEmited="moveDataFunc" />
-  <MoviesCardsContainer v-if="moviesList.length !== 0" :moviesListProp="moviesList" />
+  <SearchBar @productsListEmited="moveDataFunc" />
+  <MoviesCardsContainer v-if="productsList.length !== 0" :productsListProp="productsList" />
   <div v-else>
     <p>Cerca qualcosa...</p>
   </div>
@@ -16,12 +16,12 @@
     },
     data() {
       return {
-        moviesList: []
+        productsList: []
       }
     },
     methods: {
       moveDataFunc(list){
-        this.moviesList = list;
+        this.productsList = list;
       }
     },
   }

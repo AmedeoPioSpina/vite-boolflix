@@ -1,5 +1,5 @@
 <template>
-  <AppHeader @productsListEmited="moveDataFunc" />
+  <AppHeader />
   <AppMain />
 </template>
 

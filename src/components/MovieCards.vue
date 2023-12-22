@@ -1,46 +1,52 @@
 <template lang="">
     <li>
-        <div class="title-container">
-            <span>
-                Titolo:
-            </span>
-            <h2>
-                {{
-                    checkKeyfunc("title","name")
-                }}
-            </h2>
+        <div class="cover-image-container">
+            <img :src="`https://image.tmdb.org/t/p/w500${productInfoProp.poster_path} `" alt="Cover image">
         </div>
-        <div class="original-title-container">
-            <span>
-                Titolo originale:
-            </span>
-            <p>
-                {{ 
-                    checkKeyfunc("original_title","original_name")    
-                }}
-            </p>
-        </div>
-        <div class="language-container">
-            <span>
-                Lingua:
-            </span>
-            <img :src="lang_icons[`${productInfoProp.original_language}`]" :alt="productInfoProp.original_language">
-        </div>
-        <div class="vote-container">
-            <span>
-                Voto:
-            </span>
-            <img v-for="item in voteScaleChangeFunc(productInfoProp.vote_average)" src="https://img.icons8.com/office/40/star--v1.png" alt="">
-        </div>
-        <div class="overview-contianer">
-            <span>
-                Overview:
-            </span>
-            <p>
-                {{
-                    productInfoProp.overview
-                }}
-            </p>
+
+        <div class="product-info-container">
+            <div class="title-container">
+                <span>
+                    Titolo:
+                </span>
+                <h2>
+                    {{
+                        checkKeyfunc("title","name")
+                    }}
+                </h2>
+            </div>
+            <div class="original-title-container">
+                <span>
+                    Titolo originale:
+                </span>
+                <p>
+                    {{ 
+                        checkKeyfunc("original_title","original_name")    
+                    }}
+                </p>
+            </div>
+            <div class="language-container">
+                <span>
+                    Lingua:
+                </span>
+                <img :src="lang_icons[`${productInfoProp.original_language}`]" :alt="productInfoProp.original_language">
+            </div>
+            <div class="vote-container">
+                <span>
+                    Voto:
+                </span>
+                <img v-for="item in voteScaleChangeFunc(productInfoProp.vote_average)" src="https://img.icons8.com/office/40/star--v1.png" alt="">
+            </div>
+            <div class="overview-contianer">
+                <span>
+                    Overview:
+                </span>
+                <p>
+                    {{
+                        productInfoProp.overview
+                    }}
+                </p>
+            </div>
         </div>
     </li>
 </template>
@@ -67,11 +73,9 @@ export default {
     methods: {
         checkKeyfunc(keyA, keyB){
             if(this.productInfoProp[`${keyA}`] !== undefined){
-                    console.log(this.productInfoProp[`${keyA}`])
                     return this.productInfoProp[`${keyA}`]
                 }
                 else{ 
-                    console.log(this.productInfoProp[`${keyB}`])
                     return this.productInfoProp[`${keyB}`]
                 }
         },

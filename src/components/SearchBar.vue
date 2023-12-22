@@ -1,7 +1,5 @@
 <template lang="">
-    <div>
-        <input type="text" v-model="inputValue"  @keyup.enter="axiosFunc(inputValue), inputValue=''">
-    </div>
+        <input type="text" placeholder="Cerca" v-model="inputValue"  @keyup.enter="axiosFunc(inputValue), inputValue=''">
 </template>
 
 <script>
@@ -39,6 +37,6 @@ export default {
 }
 </script>
 
-<style lang="">
+<style lang="scss">
     
 </style>

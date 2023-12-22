@@ -9,17 +9,17 @@
                 <span>
                     Titolo:
                 </span>
-                <h2>
+                <p>
                     {{
                         checkKeyfunc("title","name")
                     }}
-                </h2>
+                </p>
             </div>
             <div class="original-title-container">
-                <span>
-                    Titolo originale:
-                </span>
                 <p>
+                    <span>
+                        Titolo originale:
+                    </span>
                     {{ 
                         checkKeyfunc("original_title","original_name")    
                     }}
@@ -38,10 +38,10 @@
                 <img v-for="item in voteScaleChangeFunc(productInfoProp.vote_average)" src="https://img.icons8.com/office/40/star--v1.png" alt="">
             </div>
             <div class="overview-contianer">
-                <span>
-                    Overview:
-                </span>
                 <p>
+                    <span>
+                        Overview:
+                    </span>
                     {{
                         productInfoProp.overview
                     }}
@@ -85,6 +85,6 @@ export default {
     },
 }
 </script>
-<style lang="">
+<style lang="scss">
     
 </style>

@@ -1,0 +1,92 @@
+$darkGray: #434343;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    width: 100vw;
+    height: 6rem;
+    section {
+        background-color: black;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        h1{
+            color: red;
+            font-size: 3rem;
+        }
+        div.search-bar-container {
+            input{
+                
+            }
+        }
+    }
+}
+
+main {
+    min-height: calc(100vh - 6rem);
+    background-color: #434343;
+    color: white;
+    section {
+        padding: 1rem 2rem;
+        ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            li{
+                background-color: black;
+                border: 2px solid white;
+                height: 40rem;
+                width: 25;
+                overflow: hidden;
+                position: relative;
+
+                div.cover-image-container{
+                    height: 40rem;
+                    width: 25rem;
+                    visibility: visible;
+                    img{
+                        height: 40rem;
+                        width: 25rem;
+                    }
+                }
+                div.product-info-container{
+                    font-size: 1rem;
+                    visibility: hidden;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 3rem 1rem 0 1rem;
+                    div{
+                        display: flex;
+                        span {
+                            font-weight: bold;
+                            margin-right: 0.3rem;
+                        }
+                        img {
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                    }
+                }
+                
+                &:hover {
+                    div.cover-image-container{
+                        visibility: hidden;
+                    }
+                    div.product-info-container{
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+}

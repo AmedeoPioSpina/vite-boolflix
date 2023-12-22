@@ -1,15 +1,16 @@
 <template lang="">
     <header>
         <section>
-            <div class="logo-container">
-                <img src="" alt="">
-            </div>
+                <h1>
+                    BOOLFLIX
+                </h1>
             <div class="search-bar-container">
                  <SearchBar />
             </div>
         </section>
     </header>
 </template>
+
 <script>
 import SearchBar from './SearchBar.vue';
 export default {
@@ -19,6 +20,6 @@ export default {
     }
 }
 </script>
-<style lang="">
+<style lang="scss">
     
 </style>

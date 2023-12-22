@@ -1,19 +1,47 @@
 <template lang="">
     <li>
-        <h2>
-            {{
-                checkKeyfunc("title","name")
-            }}
-        </h2>
-        <p>
-            {{ 
-                checkKeyfunc("original_title","original_name")    
-            }}
-        </p>
-        <img :src="lang_icons[`${productInfoProp.original_language}`]" :alt="productInfoProp.original_language">
-        <p>
-            {{ productInfoProp.vote_average }}
-        </p>
+        <div class="title-container">
+            <span>
+                Titolo:
+            </span>
+            <h2>
+                {{
+                    checkKeyfunc("title","name")
+                }}
+            </h2>
+        </div>
+        <div class="original-title-container">
+            <span>
+                Titolo originale:
+            </span>
+            <p>
+                {{ 
+                    checkKeyfunc("original_title","original_name")    
+                }}
+            </p>
+        </div>
+        <div class="language-container">
+            <span>
+                Lingua:
+            </span>
+            <img :src="lang_icons[`${productInfoProp.original_language}`]" :alt="productInfoProp.original_language">
+        </div>
+        <div class="vote-container">
+            <span>
+                Voto:
+            </span>
+            <img v-for="item in voteScaleChangeFunc(productInfoProp.vote_average)" src="https://img.icons8.com/office/40/star--v1.png" alt="">
+        </div>
+        <div class="overview-contianer">
+            <span>
+                Overview:
+            </span>
+            <p>
+                {{
+                    productInfoProp.overview
+                }}
+            </p>
+        </div>
     </li>
 </template>
 <script>
@@ -46,6 +74,9 @@ export default {
                     console.log(this.productInfoProp[`${keyB}`])
                     return this.productInfoProp[`${keyB}`]
                 }
+        },
+        voteScaleChangeFunc(vote){
+            return Math.round( (5 * vote) / 10 );
         }
     },
 }

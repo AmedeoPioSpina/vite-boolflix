@@ -20,8 +20,8 @@
       }
     },
     methods: {
-      moveDataFunc(list){
-        this.productsList = list;
+      moveDataFunc(movieslist, productsList){
+        this.productsList = [ movieslist, productsList];
       }
     },
   }
